@@ -16,3 +16,6 @@ def contact(request):
         ins = Contact(name=name, email=email, number=number, desc=desc)
         ins.save()
     return render(request, 'job/contact.html', context={})
+
+def admin_login(request):
+    return render(request, 'job/admin_login.html',context={})

@@ -2,20 +2,22 @@
 {% block content %}
 {% include 'job/navbar.html' %}
 <style>
-.main-contant{
+.form-container{
     background: #fff;
     padding: 30px;
     border-radius: 10px;
     box-shadow:0px 0px 10px 0px #000;
-    margin: 50px;
+    margin-bottom: 10px;
 }
+
 </style>
 
 <div class="main-contant mt-3">
     <h2 class="text-center" >Contact Us</h2>
+    <hr>
     <section class="row justify-content-center">
         <section class="col-12 col-sm-6 col-md-6">
-            <form method="POST">
+            <form method="POST" class="form-container">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="name"><b>Name</b></label>
