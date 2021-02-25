@@ -12,43 +12,71 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <title>{% block title_block %} job portal {% endblock %}</title>
+    <style>
+        .nav-link{
+            color:white!important;
+            margin-right: 4px;
+        }
+
+        .nav-link:hover{
+            color:yellow!important;
+            font-weight:bold;
+            background-color:red;
+            border-radius: 10px;
+        }
+    </style>
   </head>
   <body>
-      <div class="container">
-          <div class="row">
-              <div class="col-sm-4">
-                <img src="{% static 'images/5.jpg' %}" alt="image" style="width: 180px; height: 150px;">
-              </div>
-              <div class="col-sm-4 mt-5">
-                  <span style="font-weight: bold; font-size:30px;">
-                      <span style="color: red;">Online Job</span>
-                      <span style="color: green;">Portal System</span>
-                  </span>
-              </div>
-              <div class="col-sm-4 mt-5" style="padding-left: 10%;">
-                  <span style="font-weight: bold; font-size: 30px;">
-                        <i class="fab fa-twitter" style="color: #1DA1F2; cursor: pointer;"></i>
-                        <i class="fab fa-facebook-square" style="color: blue; cursor: pointer;"></i>
-                        <i class="fab fa-youtube" style="color: red; cursor: pointer;"></i>
-                        <i class="fab fa-instagram" style="color: #405DE6; cursor: pointer;"></i>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+            <img src="{% static 'images/5.jpg' %}" alt="image" style="width: 180px; height: 150px;">
+            </div>
+            <div class="col-sm-4 mt-5">
+                <span style="font-weight: bold; font-size:30px;">
+                    <span style="color: red;">Online Job</span>
+                    <span style="color: green;">Portal System</span>
+                </span>
+            </div>
+            <div class="col-sm-4 mt-5" style="padding-left: 10%;">
+                <a style="font-weight: bold; font-size: 30px;">
+                    <i class="fa fa-twitter" style="color: #1DA1F2; cursor: pointer;"></i>
+                    <i class="fa fa-facebook-square" style="color: blue; cursor: pointer;"></i>
+                    <i class="fa fa-youtube" style="color: red; cursor: pointer;"></i>
+                    <i class="fa fa-instagram" style="color: #405DE6; cursor: pointer;"></i>
 
-                  </span>
-              </div>
-          </div>
+                </a>
+            </div>
+        </div>
 
-      </div>
+    </div>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-maroon" style="background-color: maroon;">
+        <a class="navbar-brand pl-5" style="font-weight: bold; padding-left: 10px; font-family: monotype corsiva; font-size: 30px;" href="#">Job Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" style="margin-left:200px;" aria-current="page" href="#"><i class="fa fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">About</a>
+              <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-users"></i> Latest Jobs</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-user-plus"></i> User Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-sign-language"></i> Recruiter Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-sign-in"></i> Admin Login</a>
+              </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-id-card"></i> Contact</a>
             </li>
           </ul>
           <form class="d-flex" method="GET">
@@ -58,6 +86,7 @@
         </div>
       </div>
     </nav>
+
     
     
 
@@ -66,7 +95,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
