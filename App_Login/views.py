@@ -1,5 +1,6 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.urls import reverse, reverse_lazy
 from App_Login.models import UserProfile
 from django.contrib.auth.forms import AuthenticationForm
@@ -64,4 +65,23 @@ def edit_profile(request):
             form = EditProfile(instance=current_user)
             return HttpResponseRedirect(reverse('App_Login:profile'))
     return render(request, 'App_Login/profile.html', context={'form':form})
+
+
+@login_required
+def ChangePassword(request):
+    if not request.user.is_authenticated:
+        return redirect('App_Login:login')
+    error = ""
+    if request.method == 'POST':
+        o = request.POST['old']
+        n = request.POST['new']
+        c = request.POST['confirm']
+        if c==n:
+            u = User.objects.get(username__exact= request.user.username)
+            u.set_password(n)
+            u.save()
+            error = "no"
+        else:
+            error = "yes"
+    return render(request, 'App_Login/change_password.html', context={'error':error})
 
