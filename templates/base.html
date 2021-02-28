@@ -1,0 +1,84 @@
+{% load static %}
+{% block content %}
+{% include 'App_Login/navbar.html' %}
+<style>
+    .container{
+        max-width:90%;
+    }
+    .content{
+       text-align: center;
+        height: 30px;
+        width: 91%;
+        color:white;
+        bottom:0;
+        position: relative;
+
+    }
+</style>
+<div class="container-fluid" style="margin-top: 1%;">
+    <img src="{% static 'images/8.jpg' %}" style="height: 450px; width: 100%;">
+</div>
+<div class="container" style="background-color: black; height: 650px; margin-top: 2%;">
+    <h1 class="text-center text-white">----------| Our Placed Students |----------</h1>
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <img src="{% static 'images/s1.jpg' %}" style="height: 200px; width: 100%; margin-top: 5%; border-radius: 50%;">
+            <div class="content">
+                <p>Google</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img src="{% static 'images/s2.jpg' %}" style="height: 200px; width: 100%; margin-top: 5%; border-radius: 50%;">
+            <div class="content">
+                <p>Facebook</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img src="{% static 'images/s3.jpg' %}" style="height: 200px; width: 100%; margin-top: 5%; border-radius: 50%;">
+            <div class="content">
+                <p>Microsoft</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img src="{% static 'images/s4.jpg' %}" style="height: 200px; width: 100%; margin-top: 5%; border-radius: 50%;">
+            <div class="content">
+                <p>IIT</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!--another portion-->
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <img src="{% static 'images/be.jpg' %}" style="height: 200px; width: 100%; margin-top: 5%; border-radius: 50%;">
+            <div class="content">
+                <p>Behance</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img src="{% static 'images/temp.jpg' %}" style="height: 200px; width: 100%; margin-top: 5%; border-radius: 50%;">
+            <div class="content">
+                <p>Temp Agency</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img src="{% static 'images/ins.jpg' %}" style="height: 200px; width: 100%; margin-top: 5%; border-radius: 50%;">
+            <div class="content">
+                <p>Instagram</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img src="{% static 'images/info.jpg' %}" style="height: 200px; width: 100%; margin-top: 5%; border-radius: 50%;">
+            <div class="content">
+                <p>Infosys</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!--footer-->
+{% include 'job/footer.html' %}
+{% endblock content %}
