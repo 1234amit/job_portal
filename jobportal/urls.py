@@ -24,5 +24,6 @@ urlpatterns = [
     path('', include('job.urls')),
     path('account/', include('App_Login.urls')),
     path('post/', include('userprofile.urls')),
+    path('recruiter/', include('Recruiters_Login.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
