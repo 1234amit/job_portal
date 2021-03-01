@@ -14,7 +14,7 @@
 <div class="main-content">
     <section class="row justify-content-center">
         <section class="col-12 col-md-3 col-sm-6">
-            <h2 class="text-center">Recruiter Login Here</h2>
+            <h2 class="text-center">Recruiter Login</h2>
             <hr>
             <form method="POST" class="form-container">
                 {% csrf_token %}
@@ -24,14 +24,36 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="Enter your Password">
+                    <input type="password" name="pwd" class="form-control" placeholder="Enter your Password">
                 </div>
                 <br>
                 <button type="submit" name="submit" class="btn btn-primary" style="width:100%;">Login</button> 
             </form>
+            <br>
+            <p class="text-center">Don't Allready have an account ?<a href="{% url 'Recruiters_Login:recruiter_signup' %}"> Signup Here</a></p>
         </section>
     </section>
 </div>
 
 {% include 'job/footer.html' %}
+
+{% ifequal error "no" %}
+<script>
+    alert("logged in successfully")
+    window.location="{% url 'Recruiters_Login:recruiter_home' %}"
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Invalid username and password")
+</script>
+{% endifequal %}
+
+{% ifequal error "not" %}
+<script>
+    alert("Your Login Status Panding")
+</script>
+{% endifequal %}
+
 {% endblock content %}
