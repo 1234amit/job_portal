@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponseRedirect, render
+from django.shortcuts import render,HttpResponseRedirect, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from Recruiters_Login.models import Recruiters
@@ -54,3 +54,9 @@ def recruiter_login(request):
 @login_required
 def recruiter_home(request):
     return render(request, 'Recruiters_Login/recruiter_home.html')
+
+
+@login_required
+def recruiter_logout(request):
+    logout(request)
+    return redirect('Recruiters_Login:recruiter_login')
