@@ -1,0 +1,86 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'Recruiters_Login/recruiter_navbar.html' %}
+<h3 class="text-center">Add Job</h3>
+<hr>
+<div class="main-content">
+    <section class="row justify-content-center">
+        <section class="col-12 col-md-6 col-sm-6">
+            <form class="form-container" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label>Job Title</label>
+                        <input type="text" name="jobtitle" class="form-control" placeholder="Enter Your Job Title" required>
+                    </div>
+
+                    <div class="row">
+                        <div class=" form-group col-md-6">
+                            <label>Start Date</label>
+                            <input type="date" name="startdate" class="form-control" required>
+                        </div>
+                        <div class=" form-group col-md-6">
+                            <label>End Date</label>
+                          <input type="date" name="enddate" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class=" form-group col-md-6">
+                            <label>Salary(in month)</label>
+                            <input type="text" name="salary" class="form-control" placeholder="Enter Your Salary" required>
+                        </div>
+                        <div class=" form-group col-md-6">
+                            <label>Company Logo</label>
+                            <input type="file" name="logo" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class=" form-group col-md-6">
+                            <label>Experience(in year)</label>
+                            <input type="text" name="experience" class="form-control" placeholder="Enter Your Experience" required>
+                        </div>
+                        <div class=" form-group col-md-6">
+                            <label>Location</label>
+                            <input type="text" name="location" class="form-control" placeholder="Enter Your Location" required>
+                        </div>
+                    </div>
+
+                    <div class=" form-group col-md-12">
+                        <label>Skills</label>
+                        <input type="text" name="skills" class="form-control" placeholder="Enter Your Skills" required>
+                    </div>
+
+                    <div class=" form-group col-md-12">
+                        <label>Description</label>
+                        <textarea name="description" class="form-control" placeholder="Enter Your Description"></textarea>
+                    </div>
+                    <br>
+                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+
+        </section>
+
+    </section>
+
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert("job details has been added")
+    window.location = "{% url 'Recruiters_Login:job_list' %}"
+
+</script>
+
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("something went wrong, Try again. ")
+</script>
+
+{% endifequal %}
+
+{% endblock content %}

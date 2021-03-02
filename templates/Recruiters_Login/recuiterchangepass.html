@@ -1,0 +1,46 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'Recruiters_Login/recruiter_navbar.html' %}
+
+{% ifequal error "no" %}
+<script>
+    alert("Password Updated Successfully.")
+    window.location = "{% url 'Recruiters_Login:recruiter_login' %}"
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Invalid credantial. Please Try again.")
+</script>
+{% endifequal %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <section class="col-12 col-md-6 col-sm-6">
+            <h2 class="text-center">Recruiter Chanage Password</h2>
+            <hr>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="password">Current Password</label>
+                    <input type="password" class="form-control" name="currentpassword" placeholder="Enter your old password">
+                </div>
+                <div class="form-group">
+                    <label for="password1">New Password</label>
+                    <input type="password" class="form-control" name="newpassword" placeholder="Enter your new password">
+                </div>
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" class="form-control" name="confirmpassword" placeholder="Enter your new password">
+                </div>
+                <br>
+                <button type="submit" name="submit" class="btn btn-secondary">Change Password</button>
+            </form>
+        </section>
+    </div>
+</div>
+
+
+{% endblock content %}
