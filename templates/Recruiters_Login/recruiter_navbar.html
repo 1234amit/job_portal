@@ -63,22 +63,23 @@
               <a class="nav-link active" style="margin-left:50px;" aria-current="page" href="{% url 'Recruiters_Login:recruiter_home' %}"><i class="fa fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-plus-circle"></i> Add Job</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'Recruiters_Login:add_job' %}"><i class="fa fa-plus-circle"></i> Add Job</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-list-ol"></i> Job List</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'Recruiters_Login:job_list' %}"><i class="fa fa-list-ol"></i> Job List</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-list-ol"></i> Candidate Applied</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-key"></i> Change Password</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'Recruiters_Login:requiterChangePass' %}"><i class="fa fa-key"></i> Change Password</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active"aria-current="page" href="{% url 'Recruiters_Login:recruiter_logout' %}"><i class="fa fa-sign-out"></i> Logout</a>
             </li>
           </ul>
-          
+          <a class="navbar-brand text-white active" aria-current="page" href="#" style="font-family: 'Monotype Corsiva';"> Welcome, {{request.user.first_name}} {{request.user.last_name}}</a>
+
         </div>
       </div>
     </nav>
