@@ -1,0 +1,33 @@
+{% load static %}
+{% block content %}
+{% include 'job/admin_navbar.html' %}
+<h3 class="text-center">View Users</h3>
+<hr>
+<table id="example" class="table table-hover container">
+    <thead style="background-color: black; color: white;">
+        <tr>
+            <th>Sr No</th>
+            <th>Full Name</th>
+            <th>Email Address</th>
+            <th>Date of Birth</th>
+            <th>Images</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.full_name}}</td>
+            <td>{{i.user.email}}</td>
+            <td>{{i.dob}}</td>
+            <td><img src="{{i.profile_pic.url}}" style="height:50px; width: 50px; border-radius: 50%;"></td>
+            <td><a href="{% url 'job:delete_user' i.id %}" class="btn btn-danger" onclick="return confirm('Are you Sure You want to delete ?')">Delete</a></td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+   
+</table>
+
+{% endblock content %}

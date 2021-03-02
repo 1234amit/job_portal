@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  
     <title>{% block title_block %} job portal {% endblock %}</title>
     <style>
         .nav-link{
@@ -25,6 +26,9 @@
             border-radius: 10px;
         }
     </style>
+
+  
+
   </head>
   <body>
     <div class="container">
@@ -60,30 +64,37 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" style="margin-left:50px;" aria-current="page" href="{% url 'Recruiters_Login:recruiter_home' %}"><i class="fa fa-home"></i> Home</a>
+              <a class="nav-link active" style="margin-left:50px;" aria-current="page" href=""><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link active dropdown-toggle" data-toggle="dropdown" aria-current="page" href=""><i class="fa fa-users"></i> Recruiters</a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" href="{% url 'job:recruiter_pending' %}">Pending</a>
+                  <a class="dropdown-item" href="{% url 'job:recruiter_accepted' %}">Accepted</a>
+                  <a class="dropdown-item" href="{% url 'job:recuiter_rejected' %}">Rejected</a>
+                  <a class="dropdown-item" href="{% url 'job:recuiter_all' %}">All Recruiters</a>
+
+              </div>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'job:view_users' %}"><i class="fa fa-user-o"></i> View Users</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-plus-circle"></i> Add Job</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'job:admin_changePass' %}"><i class="fa fa-key"></i> Change Password</a>
             </li>
+            
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-list-ol"></i> Job List</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-list-ol"></i> Candidate Applied</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-key"></i> Change Password</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active"aria-current="page" href="{% url 'Recruiters_Login:recruiter_logout' %}"><i class="fa fa-sign-out"></i> Logout</a>
-            </li>
+                <a class="nav-link active" href="{% url 'job:admin_logout' %}">Logout</a>
+            </li>            
           </ul>
-          
+
         </div>
       </div>
     </nav>
 
     
+
     
 
     
