@@ -2,6 +2,46 @@
 {% block content %}
 {% include 'job/admin_navbar.html' %}
 
-<h3 class="text-center">Admin Home</h3>
+<style>
+    h2{
+    color:blue;
+    }
+    .mydiv:hover{
+    transform: translateY(-10px);
+    }
+</style>
+
+<h3 class="text-center mt-3">Admin Home</h3>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3 mydiv">
+            <div class="card card-body" style="background-color: #5DADE2;">
+                <h2 class="text-center">{{allusers}}</h2>
+                <a href=""><h4 class="text-center text-dark">All Users</h4></a>
+            </div>
+        </div>
+        <div class="col-md-3 mydiv">
+            <div class="card card-body" style="background-color: #F4D03F;">
+                <h2 class="text-center">{{allRecruiters}}</h2>
+                <a href=""><h4 class="text-center text-dark">All Recruiters</h4></a>
+            </div>
+        </div>
+        <div class="col-md-3 mydiv">
+            <div class="card card-body" style="background-color: #E74C3C;">
+                <h2 class="text-center">{{PendingRecruiter}}</h2>
+                <a href=""><h4 class="text-center text-dark">Pending Recruiters</h4></a>
+            </div>
+        </div>
+        <div class="col-md-3 mydiv">
+            <div class="card card-body" style="background-color: #F0F3F4;">
+                <h2 class="text-center">0</h2>
+                <a href=""><h4 class="text-center text-dark">Total Jobs</h4></a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 {% endblock content %}
