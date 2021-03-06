@@ -52,9 +52,39 @@ def recruiter_login(request):
 
 @login_required
 def recruiter_home(request):
-    totalRecruiters = Recruiters.objects.count()
-    totalJobs = Job.objects.count()
-    context = {'totalJobs':totalJobs,'totalRecruiters':totalRecruiters}
+    user = request.user
+    recruiters = Recruiters.objects.get(user=user)
+    error = ""
+    if request.method == 'POST':
+        f = request.POST['fname']
+        l = request.POST['lname']
+        con = request.POST['contact']
+        gen = request.POST['gender']
+
+        recruiters.user.first_name = f
+        recruiters.user.last_name = l
+        recruiters.mobile = con
+        recruiters.gender = gen
+
+        try:
+            recruiters.save()
+            recruiters.user.save()
+            error="no"
+
+        except:
+            error="yes"
+
+        try:
+            i = request.FILES['image']
+            recruiters.image = i
+            recruiters.save()
+            error="no"
+
+        except:
+            pass
+
+        
+    context = {'recruiters':recruiters, 'error':error}
     return render(request, 'Recruiters_Login/recruiter_home.html', context)
 
 
