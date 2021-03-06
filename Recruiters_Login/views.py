@@ -52,7 +52,10 @@ def recruiter_login(request):
 
 @login_required
 def recruiter_home(request):
-    return render(request, 'Recruiters_Login/recruiter_home.html')
+    totalRecruiters = Recruiters.objects.count()
+    totalJobs = Job.objects.count()
+    context = {'totalJobs':totalJobs,'totalRecruiters':totalRecruiters}
+    return render(request, 'Recruiters_Login/recruiter_home.html', context)
 
 
 @login_required

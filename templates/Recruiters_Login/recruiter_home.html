@@ -2,6 +2,36 @@
 {% load crispy_forms_tags %}
 {% block content %}
 {% include 'Recruiters_Login/recruiter_navbar.html' %}
-<h3 class="text-center">Recruiter home page</h3>
+<style>
+    h2{
+    color:blue;
+    }
+    .mydiv:hover{
+    transform: translateY(-10px);
+    }
+</style>
+<h3 class="text-center mt-3">Recruiter home page</h3>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 mydiv">
+            <div class="card card-body" style="background-color: #5DADE2;">
+                <h2 class="text-center">{{totalJobs}}</h2>
+                <a href="{% url 'Recruiters_Login:job_list' %}"><h4 class="text-center text-dark">Total jobs</h4></a>
+            </div>
+        </div>
+        <div class="col-md-4 mydiv">
+            <div class="card card-body" style="background-color: #F4D03F;">
+                <h2 class="text-center">{{totalRecruiters}}</h2>
+                <a href=""><h4 class="text-center text-dark">Total Recruiter</h4></a>
+            </div>
+        </div>
+        <div class="col-md-4 mydiv">
+            <div class="card card-body" style="background-color: #E74C3C;">
+                <h2 class="text-center">0</h2>
+                <a href=""><h4 class="text-center text-dark">Candidate Applied</h4></a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
