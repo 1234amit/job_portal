@@ -38,7 +38,12 @@ def admin_login(request):
 
 @login_required
 def admin_home(request):
-    return render(request, 'job/admin_home.html')
+    allusers = UserProfile.objects.count()
+    allRecruiters = Recruiters.objects.count()
+    PendingRecruiter = Recruiters.objects.filter(status="pending").count()
+    #totalJobs = Jobs.objects.count()
+    context = {'allusers':allusers, 'allRecruiters':allRecruiters, 'PendingRecruiter':PendingRecruiter}
+    return render(request, 'job/admin_home.html', context)
 
 
 def admin_logout(request):
