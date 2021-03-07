@@ -5,7 +5,7 @@ from django.contrib import messages
 from .models import Contact
 from App_Login.models import UserProfile
 from django.contrib.auth.models import User
-from Recruiters_Login.models import Recruiters
+from Recruiters_Login.models import Recruiters, Job
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -126,5 +126,12 @@ def admin_changePass(request):
     return render(request, 'job/admin_changePass.html', context)
 
 
+def latest_jobs(request):
+    job = Job.objects.all()
+    return render(request, 'job/latest_jobs.html', context={'job':job})
+
+
 def recruiter_login(request):
     return render(request, 'job/recruiter_login.html', context={})
+
+
