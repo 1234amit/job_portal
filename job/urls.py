@@ -19,6 +19,7 @@ urlpatterns = [
     path('recuiter_all/', views.recuiter_all, name="recuiter_all"),
     path('delete_recruiter/<int:pk>/', views.delete_recruiter, name="delete_recruiter"),
     path('admin_changePass/', views.admin_changePass, name="admin_changePass"),
+    path('latest_jobs/', views.latest_jobs, name="latest_jobs"),
 
 
 ]
