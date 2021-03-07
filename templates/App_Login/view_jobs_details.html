@@ -1,0 +1,67 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'App_Login/navbar.html' %}
+<h3 class="text-center">Jobs Details Page</h3>
+<hr>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h5>{{jobdetailes.title}}</h5>
+            <h6>{{jobdetailes.recruiter.company}}</h6>
+            <div class="date">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Start Date</p>
+                        <h6>{{jobdetailes.start_date}}</h6>
+                    </div>
+                    <div class="col-md-6">
+                        <p>End Date</p>
+                        <h6>{{jobdetailes.end_date}}</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="vacancies">
+                <p>Vacancies</p>
+                <h6>{{jobdetailes.description}}</h6>
+            </div>
+            <div class="Joblocation">
+                <p>Job Location</p>
+                <h6>{{jobdetailes.location}}</h6>
+            </div>
+            <div class="skills">
+                <p>Skills</p>
+                <h6>{{jobdetailes.skills}}</h6>
+            </div>
+            <div class="salary">
+                <p>Salary</p>
+                <h6>{{jobdetailes.salary}}</h6>
+            </div>
+            <div class="benefit">
+                <p>Compensation & Other Benefits</p>
+                <ul>
+                    <li>Mobile bill, Profit share</li>
+                    <li>Lunch Facilities: Partially Subsidize</li>
+                    <li>As per Company Policy.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <img src={{jobdetailes.image.url}}>
+        </div>
+
+        <h6 class="text-center mt-5">Read Before Apply</h6>
+        <hr>
+        <p class="text-center">*Photograph must be enclosed with the resume.</p>
+        <p class="text-center">Apply Procedure</p>
+
+        <a class="text-center">
+            <button type="submit" name="submit" class="btn btn-primary mb-5">Apply Online</button>
+        </a>
+        
+    </div>
+    
+
+</div>
+
+{% endblock content %}

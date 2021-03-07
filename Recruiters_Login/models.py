@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
+import uuid
 # Create your models here.
 class Recruiters(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -12,6 +14,8 @@ class Recruiters(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    
 
 
 class Job(models.Model):
