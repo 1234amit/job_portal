@@ -7,6 +7,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from App_Login.forms import CreateNewUser, EditProfile
+from Recruiters_Login.models import Recruiters, Job
+from django.views.generic import CreateView, UpdateView, DetailView, TemplateView, View, DeleteView, ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 from userprofile.forms import PostForm
 # Create your views here.
@@ -85,3 +89,13 @@ def ChangePassword(request):
             error = "yes"
     return render(request, 'App_Login/change_password.html', context={'error':error})
 
+class view_jobs(ListView, LoginRequiredMixin):
+    context_object_name = 'allJobs'
+    model = Job
+    template_name = 'App_Login/view_jobs.html'
+
+
+class jobs_details(DetailView, LoginRequiredMixin):
+    context_object_name = 'jobdetailes'
+    model = Job
+    template_name = 'App_Login/view_jobs_details.html'

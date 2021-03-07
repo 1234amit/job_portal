@@ -1,0 +1,32 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'App_Login/navbar.html' %}
+
+<h2 class="text-center mt-3">View All Jobs</h2>
+<hr>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            {% for viewjobs in allJobs %}
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters"> 
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'App_Login:jobs_details' viewjobs.pk %}">{{viewjobs.title}}</a></h5>
+                    <h6 class="card-text">{{viewjobs.recruiter.company}}</h6>
+                    <p class="card-text"><i class="fa fa-map-marker"></i> {{viewjobs.location}}</p>
+                    <p class="card-text"><i class="fa fa-briefcase"></i> At list {{viewjobs.exprience}} years</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src={{viewjobs.image.url}} class="card-img" alt="...">
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
