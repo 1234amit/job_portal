@@ -38,11 +38,12 @@ def admin_login(request):
 
 @login_required
 def admin_home(request):
+    alljobs = Job.objects.count()
     allusers = UserProfile.objects.count()
     allRecruiters = Recruiters.objects.count()
     PendingRecruiter = Recruiters.objects.filter(status="pending").count()
     #totalJobs = Jobs.objects.count()
-    context = {'allusers':allusers, 'allRecruiters':allRecruiters, 'PendingRecruiter':PendingRecruiter}
+    context = {'alljobs':alljobs,'allusers':allusers, 'allRecruiters':allRecruiters, 'PendingRecruiter':PendingRecruiter}
     return render(request, 'job/admin_home.html', context)
 
 
@@ -130,6 +131,10 @@ def latest_jobs(request):
     job = Job.objects.all()
     return render(request, 'job/latest_jobs.html', context={'job':job})
 
+@login_required
+def total_jobs(request):
+    allJobs = Job.objects.all()
+    return render(request, 'job/total_jobs.html', context={'allJobs':allJobs})
 
 def recruiter_login(request):
     return render(request, 'job/recruiter_login.html', context={})
