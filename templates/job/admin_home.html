@@ -18,25 +18,25 @@
         <div class="col-md-3 mydiv">
             <div class="card card-body" style="background-color: #5DADE2;">
                 <h2 class="text-center">{{allusers}}</h2>
-                <a href=""><h4 class="text-center text-dark">All Users</h4></a>
+                <a href="{% url 'job:view_users' %}"><h4 class="text-center text-dark">All Users</h4></a>
             </div>
         </div>
         <div class="col-md-3 mydiv">
             <div class="card card-body" style="background-color: #F4D03F;">
                 <h2 class="text-center">{{allRecruiters}}</h2>
-                <a href=""><h4 class="text-center text-dark">All Recruiters</h4></a>
+                <a href="{% url 'job:recuiter_all' %}"><h4 class="text-center text-dark">All Recruiters</h4></a>
             </div>
         </div>
         <div class="col-md-3 mydiv">
             <div class="card card-body" style="background-color: #E74C3C;">
                 <h2 class="text-center">{{PendingRecruiter}}</h2>
-                <a href=""><h4 class="text-center text-dark">Pending Recruiters</h4></a>
+                <a href="{% url 'job:recruiter_pending' %}"><h4 class="text-center text-dark">Pending Recruiters</h4></a>
             </div>
         </div>
         <div class="col-md-3 mydiv">
             <div class="card card-body" style="background-color: #F0F3F4;">
-                <h2 class="text-center">0</h2>
-                <a href=""><h4 class="text-center text-dark">Total Jobs</h4></a>
+                <h2 class="text-center">{{alljobs}}</h2>
+                <a href="{% url 'job:total_jobs' %}"><h4 class="text-center text-dark">Total Jobs</h4></a>
             </div>
         </div>
 

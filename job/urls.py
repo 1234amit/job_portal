@@ -20,6 +20,6 @@ urlpatterns = [
     path('delete_recruiter/<int:pk>/', views.delete_recruiter, name="delete_recruiter"),
     path('admin_changePass/', views.admin_changePass, name="admin_changePass"),
     path('latest_jobs/', views.latest_jobs, name="latest_jobs"),
-
+    path('total_jobs/', views.total_jobs, name="total_jobs"),
 
 ]
