@@ -1,0 +1,45 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'App_Login/navbar.html' %}
+<h2 class="text-center mt-3">Job List</h2>
+<hr>
+<div class="container">
+    <table id="example" class="table table-hover container">
+        <thead style="background-color: black; color: white;">
+            <tr class="text-center">
+                <th>Sr No</th>
+                <th>Job Title</th>
+                <th>Company Name</th>
+                <th>Creation Date</th>
+                <th>End Date</th>
+                <th>Salary</th>
+                <th>Experience</th>
+                <th>Location</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in job %}
+            <tr class="text-center">
+                <td>{{forloop.counter}}</td>
+                <td>{{i.title}}</td>
+                <td>{{i.recruiter.company}}</td>
+                <td>{{i.creationdate}}</td>
+                <td>{{i.end_date}}</td>
+                <td>{{i.salary}}</td>
+                <td>{{i.exprience}}</td>
+                <td>{{i.location}}</td>
+                <td><a href="{% url 'App_Login:delete_jobs' i.id %}"><button type="submit" name="submit"
+                class="btn btn-danger" onclick="return confirm('Are You really want to delete this item')">Delete</button></a></td>
+            </tr>
+    
+            {% endfor %}
+        </tbody>
+       
+    </table>
+
+</div>
+
+
+{% endblock content %}

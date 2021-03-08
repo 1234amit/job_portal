@@ -12,4 +12,6 @@ urlpatterns = [
     path('changepassword/', views.ChangePassword, name="changepassword"),
     path('view_jobs/', views.view_jobs.as_view(), name="view_jobs"),
     path('jobs_details/<int:pk>',views.jobs_details.as_view(), name="jobs_details"),
+    path('job_list/', views.job_list, name='job_list'),
+    path('delete_jobs/<str:pk>', views.delete_jobs, name='delete_jobs'),
 ]

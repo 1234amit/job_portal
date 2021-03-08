@@ -99,3 +99,14 @@ class jobs_details(DetailView, LoginRequiredMixin):
     context_object_name = 'jobdetailes'
     model = Job
     template_name = 'App_Login/view_jobs_details.html'
+
+@login_required
+def job_list(request):
+    job = Job.objects.all()
+    return render(request, 'App_Login/job_list.html',context={'job':job})
+
+@login_required
+def delete_jobs(request, pk):
+    jobs = Job.objects.get(id=pk)
+    jobs.delete()
+    return redirect('App_Login/job_list')
